@@ -1,12 +1,11 @@
 pipeline{
-  
-     agent {
-                docker {
-                image 'maven'
-	        args '-v $HOME/.m2:/root/.m2'
-                }
-               
-            }
+ 
+    agent any
+    
+    environment{
+         PATH = "/opt/maven-3.3.9/bin:$PATH"
+         
+     }
   
         stages{
            stage('build'){
