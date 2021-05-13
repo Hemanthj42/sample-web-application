@@ -3,12 +3,13 @@ pipeline{
      agent {
                 docker {
                 image 'maven'
-	      
-                args '-v $HOME/.m2:/root/.m2'
+	        args '-v $HOME/.m2:/root/.m2'
                 }
+               
             }
   
-       stages{
+        stages{
+		
            stage('Quality Gate Statuc Check'){
                steps{
                       script{
