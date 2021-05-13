@@ -9,6 +9,11 @@ pipeline{
             }
   
         stages{
+           stage('build'){
+               steps{
+		sh "mvn clean install"
+	       }
+	   }
 		
            stage('Quality Gate Statuc Check'){
                steps{
@@ -22,7 +27,7 @@ pipeline{
                            error "Pipeline aborted due to quality gate failure: ${qg.status}"
                       }
                            }
-		                      sh "mvn clean install"
+		                      
                   }
                 }  
              }
